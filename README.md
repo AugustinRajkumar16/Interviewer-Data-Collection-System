@@ -77,6 +77,18 @@ In your project directory, install the necessary Python libraries:
 5. Click the "Transcribe" button to generate the transcription.
 6. The transcription will be saved in `filename_transcription.jsonl`, where `filename` is the name of the uploaded audio file.
 
+## Dataset
+
+The dataset used for this task consists of sample interviews taken from YouTube videos, which have been converted into MP3 format. One such example is the video available at:
+
+- [Sample Interview Video](https://www.youtube.com/watch?v=vkr2nSOpU9s&ab_channel=TechqflowSoftwareSolutions)
+
+The converted audio files are stored inside the 'Dataset' folder within the project directory.
+
+## Output
+
+The transcribed JSONL files are saved in the 'Output' folder of the project directory. The file name will follow the format `filename_transcription.jsonl`, where `filename` corresponds to the name of the uploaded or recorded audio file.
+
 ## Acknowledgements
 
 - [Deepgram](https://deepgram.com/)

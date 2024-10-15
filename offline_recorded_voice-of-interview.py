@@ -25,6 +25,12 @@ DEEPGRAM_API_KEY = 'your own API key'
 # Initialize the Deepgram client
 deepgram = Deepgram(DEEPGRAM_API_KEY)
 
+# Define the output folder path
+OUTPUT_FOLDER = "Output"  # You can change this to your desired folder path
+# Ensure the output folder exists
+if not os.path.exists(OUTPUT_FOLDER):
+    os.makedirs(OUTPUT_FOLDER)
+
 # Function to convert audio file to wav
 def convert_to_wav(file):
     temp_wav = tempfile.NamedTemporaryFile(delete=False, suffix=".wav")
@@ -87,7 +93,7 @@ async def transcribe_audio(file, filename):
                 st.write(f"{label}: {sentence}")
 
             # Save the structured data to a JSONL file
-            output_filename = f"{filename}_transcription.jsonl"
+            output_filename = os.path.join(OUTPUT_FOLDER, f"{filename}_transcription.jsonl")
             with jsonlines.open(output_filename, mode='w') as writer:
                 for label, sentence in labeled_sentences:
                     writer.write({label: sentence})
